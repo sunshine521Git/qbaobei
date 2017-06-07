@@ -1,0 +1,29 @@
+{
+  "name": "qbaobei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunshine521Git/qbaobei.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunshine521Git/qbaobei/issues"
+  },
+  "homepage": "https://github.com/sunshine521Git/qbaobei#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-webpack": "^1.5.0",
+    "gulp-webserver": "^0.9.1",
+    "imports-loader": "^0.7.1",
+    "vinyl-named": "^1.1.0",
+    "yo3": "^3.0.9"
+  }
+}

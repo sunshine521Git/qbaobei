@@ -1,0 +1,8 @@
+<div class="m-index">
+  <div id="header"></div>
+  <div id="nav"></div>
+  <section>
+    <div id="banner"> </div>
+    <div id="menu"></div>
+  </section>
+</div>
