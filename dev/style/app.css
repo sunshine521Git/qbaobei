@@ -501,7 +501,6 @@
  * Yo框架全局Reset
  * Yo重置Mobile及高级浏览器上常见的差异
  */
-@import url(./module/swiper/swiper-3.4.2.min.css);
 *,
 ::before,
 ::after {
