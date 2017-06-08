@@ -13,6 +13,9 @@ var named = require('vinyl-named')
 // 引入 gulp-sass 包
 var sass = require('gulp-sass')
 
+//引入反向代理的 包
+var proxy = require('http-proxy-middleware')
+
 // 拷贝src下的html到build下
 gulp.task('copyhtml', function() {
 	gulp.src('./src/*.html')
@@ -21,18 +24,47 @@ gulp.task('copyhtml', function() {
 
 // 启动一个webserver服务
 gulp.task('webserver', function() {
+	url: './listmore'
 	gulp.src('./build/')
-		.pipe(
-			webserver({
-				host: 'localhost',
-				port: 8000,
-				directoryListing: {
-					enable: true,
-					path: './build'
-				},
-				livereload: true
-			})
-		)
+	.pipe(
+		webserver({
+			host: 'localhost',
+			port: 8000,
+			directoryListing: {
+				enable: true,
+				path: './build'
+			},
+			livereload: true,
+			middleware: [
+				//反向代理
+				proxy('/mock', {
+					target: 'http://localhost:9000/',
+					//目标
+
+					changeOrigin: true,
+					//识别localhost向其他域名的跳转
+
+					pathRewrite: {
+						'^/mock': ''
+						//浏览器看到mock就去9000域名，并且删除mock
+					}
+				})
+//				Proxy('/api,', {
+//					//目标地址
+//					target: 'http://m.qbaobei.com/',
+//					
+//					changeOrigin: true,
+//					//识别localhost向其他域名的跳转
+//					
+//					pathRwrite:{
+//						'^/api':''
+//						//浏览器看到api就去对应的域名，并且删除api
+//					}
+//				})
+			]
+
+		})
+	)
 })
 
 // 打包js
@@ -76,6 +108,18 @@ gulp.task('packcss', function() {
 gulp.task('copyimage', function() {
 	gulp.src('./src/images/**/*')
 		.pipe(gulp.dest('./build/images'))
+})
+
+// copy swiper.css
+gulp.task('copySwiperCss', function() {
+	gulp.src('./src/style/usage/module/swiper/swiper-3.4.2.min.css')
+		.pipe(gulp.dest('./build/style'))
+})
+
+// copy swiper.js
+gulp.task('copySwiperJs', function() {
+	gulp.src('./src/script/utils/swiper-3.4.2.jquery.min.js')
+		.pipe(gulp.dest('./build/script'))
 })
 
 // copy libs

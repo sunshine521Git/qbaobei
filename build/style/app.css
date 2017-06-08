@@ -501,6 +501,7 @@
  * Yo框架全局Reset
  * Yo重置Mobile及高级浏览器上常见的差异
  */
+@import url(./module/swiper/swiper-3.4.2.min.css);
 *,
 ::before,
 ::after {
@@ -708,10 +709,74 @@ a {
   -moz-osx-font-smoothing: grayscale;
   vertical-align: middle; }
 
+@font-face {
+  font-family: 'yofont';
+  src: url("../images/iconfont/iconfont.woff") format("woff"), url("../images/iconfont/iconfont.ttf") format("truetype"); }
+
 .m-index {
   display: -webkit-box;
   display: -webkit-flex;
-  display: flex; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  background: #fff; }
+  .m-index #header {
+    width: 100%;
+    height: .46rem;
+    background: #fa4e68;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center; }
+  .m-index #nav {
+    width: 100%;
+    height: .40rem; }
+  .m-index #section {
+    background: gray;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: .1px;
+    overflow-y: scroll;
+    width: 100%; }
 
-body {
-  background: yellow; }
+.logo {
+  margin-left: .10rem; }
+  .logo a img {
+    width: .8rem;
+    height: .15rem; }
+
+.search {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  height: .28rem;
+  line-height: .28rem;
+  margin: 0 .15rem  0 .10rem;
+  color: #f2a1ae;
+  background: #df3c55;
+  border-radius: 0.03rem;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important; }
+  .search .searchMagnifier {
+    margin-left: .08rem;
+    color: white; }
+
+.marginR10 {
+  margin-right: .10rem;
+  color: white; }
+
+li {
+  list-style: none;
+  font-size: .16rem;
+  padding: 0 .10rem; }

@@ -1,3 +1,26 @@
-body{
-    background: yellow;
+.logo {
+    margin-left: .10rem;
+    a {
+        img {
+            width: .8rem;
+            height: .15rem;
+        }
+    }
+}
+.search{
+    @include flex(1);
+    height:.28rem;
+    line-height: .28rem;
+    margin: 0 .15rem  0 .10rem ;
+    color: #f2a1ae;
+    background: #df3c55;
+    @include border-radius(.03rem);
+    .searchMagnifier{
+        margin-left: .08rem;
+        color: white;
+    }
+}
+.marginR10{
+    margin-right: .10rem;
+    color: white;
 }

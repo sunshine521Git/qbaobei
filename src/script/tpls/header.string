@@ -1,4 +1,11 @@
-<header>
-  亲亲宝贝
-  你好！
-</header>
+<h1 class="logo">
+	<a href="">
+		<img src="../images/logo.png"/>
+	</a>
+</h1>
+<div class="search">
+	<span class="yo-ico searchMagnifier">&#xe600;</span>
+	高龄备孕二胎
+</div>
+<span class="yo-ico marginR10">&#xe66e;</span>
+<span class="yo-ico marginR10">&#xe602;</span>
