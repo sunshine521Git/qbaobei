@@ -1,0 +1,61 @@
+.m-index {
+    #section {
+        background: gray;
+        @include flex(1);
+        overflow-y: scroll;
+        width: 100%;
+        .scrollSection {
+            overflow: hidden;
+            .swiper-container {
+                position: relative;
+                .swiper-wrapper {
+                    .swiper-slide {
+                        position: relative;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                        .title {
+                            height: .30rem;
+                            width: 100%;
+                            background: black;
+                            opacity: .6;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding-left: 3%;
+                            .title_text {
+                                line-height: .30rem;
+                                font-size: .12rem;
+                                width: 70%;
+                                height: .30rem;
+                                color: white;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    bottom: 0;
+                    left: auto;
+                    right: 0;
+                    z-index: 5;
+                    width: .80rem;
+                    height: .30rem;
+                    line-height: .26rem;
+                    .swiper-pagination-bullet {
+                        width: .06rem;
+                        height: .06rem;
+                        background: #fff;
+                        opacity: 1;
+                    }
+                    .swiper-pagination-bullet-active {
+                        background: $base-color;
+                    }
+                }
+            }
+        }
+    }
+}
