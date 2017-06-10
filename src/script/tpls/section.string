@@ -34,4 +34,66 @@
 		</div>
 		<div class="swiper-pagination"></div>
 	</div>
+	<div class="menu">
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			早教
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			食谱
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			视频
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			APP
+		</a>
+		<a href="" class="">
+			<div>
+
+			</div>
+			试用
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			问答
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			百科
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			工具
+		</a>
+		<a href="" class="">
+			<div>
+				<span></span>
+			</div>
+			奶粉
+		</a>
+		<a href="" class="">
+			<div>
+			</div>
+			听听
+		</a>
+	</div>
+
 </div>
