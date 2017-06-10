@@ -39,45 +39,45 @@ var options = minimist(process.argv.slice(2), knowOptions)
 //任务1： 启动一个webserver服务
 gulp.task('webserver', function() {
 	gulp.src('./dev/')
-	.pipe(
-		webserver({
-			host: 'localhost',
-			port: 8000,
-			directoryListing: {
-				enable: true,
-				path: './dev'
-			},
-			livereload: true,
-			middleware: [
-				//反向代理
-				proxy('/mock', {
-					target: 'http://localhost:9000/',
-					//目标
+		.pipe(
+			webserver({
+				host: 'localhost',
+				port: 8000,
+				directoryListing: {
+					enable: true,
+					path: './dev'
+				},
+				livereload: true,
+				middleware: [
+					//反向代理
+					proxy('/mock', {
+						target: 'http://localhost:9000/',
+						//目标
 
-					changeOrigin: true,
-					//识别localhost向其他域名的跳转
+						changeOrigin: true,
+						//识别localhost向其他域名的跳转
 
-					pathRewrite: {
-						'^/mock': ''
-						//浏览器看到mock就去9000域名，并且删除mock
-					}
-				}),
-				proxy('/api,', {
-					//目标地址
-					target: 'http://m.qbaobei.com/',
-					
-					changeOrigin: true,
-					//识别localhost向其他域名的跳转
-					
-					pathRwrite:{
-						'^/api':''
-						//浏览器看到api就去对应的域名，并且删除api
-					}
-				})
-			]
+						pathRewrite: {
+							'^/mock': ''
+							//浏览器看到mock就去9000域名，并且删除mock
+						}
+					}),
+					proxy('/api,', {
+						//目标地址
+						target: 'http://m.qbaobei.com/',
 
-		})
-	)
+						changeOrigin: true,
+						//识别localhost向其他域名的跳转
+
+						pathRwrite: {
+							'^/api': ''
+							//浏览器看到api就去对应的域名，并且删除api
+						}
+					})
+				]
+
+			})
+		)
 })
 
 //任务2： 打包 js
@@ -112,7 +112,7 @@ gulp.task('packjs', function() {
 		//开发环境  将js输送到dev下
 		.pipe(gulpif(options.env === 'production', rev.manifest())) //生产环境  产生json文件
 		.pipe(gulpif(options.env === 'production', gulp.dest('./build/rev/script')))
-		//生产环境 将json文件输送到bulid下的rev下的script
+	//生产环境 将json文件输送到bulid下的rev下的script
 })
 
 //任务3： 打包  scss
@@ -160,12 +160,12 @@ gulp.task('copyimage', function() {
 
 //任务7： copy libs
 gulp.task('copylibs', function() {
-	gulp.src('./src/script/libs/*.*')
+	gulp.src('./src/script/libs/**/*')
 		.pipe(gulpif(options.env === 'production', gulp.dest('./build/libs')))
 		.pipe(gulpif(options.env !== 'production', gulp.dest('./dev/libs')))
 })
 
-//任务8： 监测文件变化
+//任务9： 监测文件变化
 gulp.task('watch', function() {
 	gulp.watch('./src/*.html', ['copyhtml'])
 	gulp.watch('./src/script/**/*.js', ['packjs'])
@@ -175,24 +175,23 @@ gulp.task('watch', function() {
 	gulp.watch('./src/libs/**/*', ['copylibs'])
 })
 
-//任务9：删除 bulid 里的所有文件
+//任务10：删除 bulid 里的所有文件
 gulp.task('clean', del.bind(null, ['./bulid/**/*'], {
 	force: true
 }))
 
-//任务10：总的 pack任务
+//任务11：总的 pack任务
 gulp.task('pack', function(callback) {
 	if(options.env === 'production') {
 		//注意 串行  并行  逗号前后的有先后顺序 但是【】中间的没有先后顺序
-		gulpSequence('clean', ['packjs', 'packcss', 'copylibs', 'copyimage', 'copyhtml'], 'packhtml')(callback)
-	}else{
-		gulpSequence(['packjs', 'packcss', 'copyhtml', 'copylibs', 'copyimage'])(callback)
+		gulpSequence('clean', ['packjs', 'packcss','copylibs', 'copyimage', 'copyhtml'], 'packhtml')(callback)
+	} else {
+		gulpSequence(['packjs', 'packcss','copyhtml', 'copylibs', 'copyimage'])(callback)
 	}
 
-	
 })
 
-//任务11： 定义默认任务
+//任务12： 定义默认任务
 gulp.task('default', ['pack', 'watch', 'webserver'], function() {
 	console.log('恭喜大神！默认任务执行完成!.')
 })
