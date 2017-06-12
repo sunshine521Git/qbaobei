@@ -44,15 +44,17 @@ gulp.task('webserver', function() {
 				host: 'localhost',
 				port: 8000,
 				directoryListing: {
+					//方便看目录，不至于每次直接打开index.html
 					enable: true,
 					path: './dev'
 				},
 				livereload: true,
-				middleware: [
+				middleware: [  //webserver还可以调用 中间键
 					//反向代理
-					proxy('/mock', {
+					proxy(
+						'/mock', {//第一个参数:需要代理的路径
 						target: 'http://localhost:9000/',
-						//目标
+						//第二个参数：目标地址
 
 						changeOrigin: true,
 						//识别localhost向其他域名的跳转
@@ -86,13 +88,13 @@ gulp.task('packjs', function() {
 			'./src/script/app.js',
 			'./src/script/app-search.js'
 		])
-		.pipe(named())
+		.pipe(named())  //取到app等名字
 		.pipe(webpack({
 			output: {
 				filename: '[name].js'
 			},
 			module: {
-				loaders: [{
+				loaders: [{//解析不同文件名的loaders
 						test: /\.js$/,
 						loader: 'imports-loader',
 						exclude: './node_modules'

@@ -944,3 +944,55 @@ a {
           background-position: -1px -386px; }
       .m-index #section .scrollSection .menu a:nth-child(10) div {
         background: url(../images/menu/sing.png) no-repeat; }
+    .m-index #section .scrollSection .listMore {
+      padding: 0 .10rem;
+      background: white; }
+      .m-index #section .scrollSection .listMore a {
+        padding: .10rem 0;
+        border-bottom: 1px solid #e7e7e7;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        width: 100%; }
+        .m-index #section .scrollSection .listMore a .img_box {
+          width: 33.3%;
+          margin-right: .14rem; }
+          .m-index #section .scrollSection .listMore a .img_box img {
+            width: 100%;
+            height: 100%; }
+        .m-index #section .scrollSection .listMore a .txt {
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          flex: 1;
+          width: .1px;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center; }
+          .m-index #section .scrollSection .listMore a .txt .txt_title {
+            font-size: .16rem;
+            margin-bottom: .05rem;
+            color: #474747;
+            font-weight: normal; }
+          .m-index #section .scrollSection .listMore a .txt .txt_content {
+            color: #999;
+            font-size: .12rem;
+            line-height: .20rem;
+            height: .40rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical; }
