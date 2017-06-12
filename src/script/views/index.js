@@ -22,34 +22,39 @@ var mySwiper = new Swiper('.swiper-container', {
 	loop: true, //开启循环
 	speed: 800, //每张页面的切换速度
 	pagination: '.swiper-pagination', //分页器
-	paginationClickable :true,//分页器可以点击
-	mousewheelControl : true,//允许拖动鼠标切换
-	preventClicks : false,//默认true
+	paginationClickable: true, //分页器可以点击
+	mousewheelControl: true, //允许拖动鼠标切换
+	preventClicks: false, //默认true
 	//当swiper在触摸时阻止默认事件（preventDefault），用于防止触摸时触发链接跳转。
-	
-	autoplayDisableOnInteraction : false,
+
+	autoplayDisableOnInteraction: false,
 	//用户操作swiper之后，是否禁止autoplay。默认为true：停止。设置为false的话，可以继续autoplay
-	
+
 })
 
-
-
 //$.ajax({
-//url: '/listmore.json?pageNo=2&pageSize=15',
-//success: function (res) {
-//  var str = ''
-//  var dataSource = res.content.data.page.result
-//  for (var i = 0; i < dataSource.length; i++) {
-//    str += '<li> \
-//    <div><img src="//www.lgstatic.com/'+ dataSource[i].companyLogo +'"></div> \
-//      <div> \
-//        <h2>'+ dataSource[i].companyName +'</h2> \
-//          <p>'+ dataSource[i].positionName +'</p> \
-//            <span>'+ dataSource[i].createTime +'</span> \
-//            </div> \
-//            <div>'+ dataSource[i].salary +'</div> \
-//            </li>';
-//  }
-//  $('.m-index section ul').html(str)
-//}
+//	//http://dynamic.qbaobei.com/dynamic.php?s=Qbaobeimobile/loadFirstNews&callback=jQuery1111013138540122878228_1497103117095&page=1&_=1497103117097
+//	url: '/api/index.php',
+//	data: {
+//		s:'/Dynamic/autoTask/push',
+//		url:'/',
+//		pm:'m'
+//	},
+//	success: function(res) {
+//		//  var str = ''
+//		//  var dataSource = res.content.data.page.result
+//		//  for (var i = 0; i < dataSource.length; i++) {
+//		//    str += '<li> \
+//		//    <div><img src="//www.lgstatic.com/'+ dataSource[i].companyLogo +'"></div> \
+//		//      <div> \
+//		//        <h2>'+ dataSource[i].companyName +'</h2> \
+//		//          <p>'+ dataSource[i].positionName +'</p> \
+//		//            <span>'+ dataSource[i].createTime +'</span> \
+//		//            </div> \
+//		//            <div>'+ dataSource[i].salary +'</div> \
+//		//            </li>';
+//		//  }
+//		//  $('.m-index section ul').html(str)
+//		console.log(res)
+//	}
 //})
