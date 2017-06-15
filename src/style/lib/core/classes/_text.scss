@@ -38,6 +38,7 @@
  * @param {Length} $width 定义容器的宽度，默认值：null <2.0.0>
  * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案），需要注意的是本参数只支持webkit内核 <2.1.2>
  */
+
 @mixin ellipsis($width: null, $line-clamp: 1) {
     overflow: hidden;
     text-overflow: ellipsis;

@@ -41,5 +41,8 @@
     "string-loader": "0.0.1",
     "vinyl-named": "^1.1.0",
     "yo3": "^3.0.9"
+  },
+  "dependencies": {
+    "art-template": "^4.11.0"
   }
 }
