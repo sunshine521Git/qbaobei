@@ -64,14 +64,15 @@ gulp.task('webserver', function() {
 							//浏览器看到mock就去9000域名，并且删除mock
 						}
 					}),
-					proxy('/api,', {
+					proxy(
+						'/api', {//第一个参数:需要代理的路径()
 						//目标地址
-						target: 'http://m.qbaobei.com/',
+						target: 'http://dynamic.qbaobei.com/',
 
 						changeOrigin: true,
 						//识别localhost向其他域名的跳转
 
-						pathRwrite: {
+						pathRewrite: {
 							'^/api': ''
 							//浏览器看到api就去对应的域名，并且删除api
 						}

@@ -1,0 +1,14 @@
+<script id="indexList" type="text/html">
+	{{each res}}
+	<!--插值表达式-->
+	<a href={{$value.url}}>
+		<div class="img_box">
+			<img src={{$value.smallimg}}/>
+		</div>
+		<div class="txt">
+			<h4 class="txt_title">{{$value.title}}</h4>
+			<p class="txt_content">{{$value.description}}</p>
+		</div>
+	</a>
+	{{/each}}
+</script>

@@ -2,7 +2,7 @@ var indexTpl = require('../tpls/index.string')
 var headerTpl = require('../tpls/header.string')
 var navTpl = require('../tpls/nav.string')
 var sectionTpl = require('../tpls/section.string')
-//var bannerTpl = require('../tpls/banner.string')
+//var listMoreTpl = require('../tpls/listMore.string')
 
 var commonUtil = require('../utils/common')
 
@@ -10,13 +10,13 @@ commonUtil.renderBody(indexTpl)
 commonUtil.render(document.getElementById('header'), headerTpl)
 commonUtil.render(document.getElementById('nav'), navTpl)
 commonUtil.render(document.getElementById('section'), sectionTpl)
-//commonUtil.render(document.getElementById('banner'), bannerTpl)
 
-//nav 的轮播图
+//nav 的局部滚动（用的插件iscroll）
 var myNavScroll = new IScroll('#nav', {
 	scrollX: true
 })
 
+//轮播图
 var mySwiper = new Swiper('.swiper-container', {
 	autoplay: 3000, //可选选项，自动滑动
 	loop: true, //开启循环
@@ -29,32 +29,24 @@ var mySwiper = new Swiper('.swiper-container', {
 
 	autoplayDisableOnInteraction: false,
 	//用户操作swiper之后，是否禁止autoplay。默认为true：停止。设置为false的话，可以继续autoplay
-
 })
 
-//$.ajax({
-//	//http://dynamic.qbaobei.com/dynamic.php?s=Qbaobeimobile/loadFirstNews&callback=jQuery1111013138540122878228_1497103117095&page=1&_=1497103117097
-//	url: '/api/index.php',
-//	data: {
-//		s:'/Dynamic/autoTask/push',
-//		url:'/',
-//		pm:'m'
-//	},
-//	success: function(res) {
-//		//  var str = ''
-//		//  var dataSource = res.content.data.page.result
-//		//  for (var i = 0; i < dataSource.length; i++) {
-//		//    str += '<li> \
-//		//    <div><img src="//www.lgstatic.com/'+ dataSource[i].companyLogo +'"></div> \
-//		//      <div> \
-//		//        <h2>'+ dataSource[i].companyName +'</h2> \
-//		//          <p>'+ dataSource[i].positionName +'</p> \
-//		//            <span>'+ dataSource[i].createTime +'</span> \
-//		//            </div> \
-//		//            <div>'+ dataSource[i].salary +'</div> \
-//		//            </li>';
-//		//  }
-//		//  $('.m-index section ul').html(str)
-//		console.log(res)
-//	}
-//})
+$(function() {
+	//section的局部滚动（用的插件iscroll）
+	new IScroll('#section')
+})
+
+$.ajax({
+//	url:'/api/dynamic.php?s=Qbaobeimobile/loadFirstNews',
+	url: '/mock/listmore',  //mock假数据
+	success: function( res ) {
+		
+//		decodeURI(res)
+		console.log( res )
+		
+		var html = template("indexList", res)
+
+		$('.listMore').html(html)
+
+	}
+})
